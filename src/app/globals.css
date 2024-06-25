@@ -21,12 +21,16 @@
 
     --card: #a4161a;
     --card-foreground: #ba181b;
+    --card-1: #6c1111;
+    --card-2: #710c73;
+    --card-3: #240077;
+    --card-4: #aa4d0a;
 
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(222.2 84% 4.9%);
 
     --primary: #660708;
-    --primary-foreground: #e5383b;
+    --primary-foreground: #aa0003;
 
     --secondary: #b1a7a6;
     --secondary-foreground: #f5f3f4;
@@ -85,6 +89,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* clerk class override */

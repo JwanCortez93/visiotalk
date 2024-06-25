@@ -51,6 +51,10 @@ const config = {
         card: {
           DEFAULT: "var(--card)",
           foreground: "var(--card-foreground)",
+          1: "var(--card-1)",
+          2: "var(--card-2)",
+          3: "var(--card-3)",
+          4: "var(--card-4)",
         },
       },
       borderRadius: {
@@ -58,6 +62,10 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        hero: "url('/images/hero-background.png')",
+      },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
