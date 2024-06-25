@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation";
 const MobileNav = () => {
   const pathname = usePathname();
   return (
-    <section className="w-full max-w-[264px]">
+    <section className="w-full max-w-[264px] sm:hidden">
       <Sheet>
         <SheetTrigger>
           <Menu />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background`}>{children}</body>
+      <ClerkProvider
+        appearance={{
+          layout: {
+            logoImageUrl: "logo/svg/logo-no-background.svg",
+            socialButtonsVariant: "iconButton",
+          },
+          variables: {
+            colorText: "#f5f3f4",
+            colorPrimary: "#660708",
+            colorInputBackground: "#d3d3d3",
+            colorNeutral: "white",
+
+            colorBackground: "#161a1d",
+          },
+        }}
+      >
+        <body className={`${inter.className} bg-background`}>{children}</body>
+      </ClerkProvider>
     </html>
   );
 }

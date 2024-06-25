@@ -86,3 +86,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* clerk class override */
+
+.cl-logoBox {
+  height: auto;
+}
+
+.cl-footerActionLink {
+  filter: brightness(5);
+}
+
+.cl-providerIcon__github {
+  filter: invert(1);
+}
+.cl-socialButtonsIconButton {
+  background-color: rgb(54, 54, 54);
+}

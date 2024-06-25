@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => {
   return (
@@ -21,7 +22,11 @@ const NavBar = () => {
           alt="VisioTalk Logo"
         />
       </Link>
-      <div className="flex-between gap-5 sm:hidden">
+      <div className="flex-between gap-5 ">
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
         <MobileNav />
       </div>
     </nav>
