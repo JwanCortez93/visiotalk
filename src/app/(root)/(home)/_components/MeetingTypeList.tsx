@@ -9,12 +9,17 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import MeetingModal from "./MeetingModal";
+import { HomeCardProps } from "../../../../../types";
 
 export const MeetingTypeList = () => {
   const router = useRouter();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >();
+
+  const createMeeting = () => {};
+
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-4">
       <HomeCard
@@ -50,6 +55,14 @@ export const MeetingTypeList = () => {
         title="View recordings"
         subtitle="Check your previous meetings"
         handleClick={() => router.push("/recordings")}
+      />
+      <MeetingModal
+        isOpen={meetingState === "isInstantMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Start an Instant Meeting"
+        className="text-center"
+        buttonText="Start Meeting"
+        handleClick={createMeeting}
       />
     </section>
   );
