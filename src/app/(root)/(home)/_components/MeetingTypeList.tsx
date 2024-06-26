@@ -58,12 +58,12 @@ export const MeetingTypeList = () => {
       }
       toast({
         title: "Meeting created",
-        variant: "destructive",
       });
     } catch (error) {
       console.log(error);
       toast({
         title: "Failed to create meeting",
+        variant: "destructive",
       });
     }
   };

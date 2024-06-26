@@ -113,3 +113,40 @@
 .cl-socialButtonsIconButton {
   background-color: rgb(54, 54, 54);
 }
+
+/* stream class override */
+
+.str-video {
+  --str-video__video-preview-container--border-block-start: 4px solid
+    var(--primary-foreground) !important;
+  --str-video__video-preview-container--border-block-end: 4px solid
+    var(--primary-foreground) !important;
+  --str-video__video-preview-container--border-inline-start: 4px solid
+    var(--primary-foreground) !important;
+  --str-video__video-preview-container--border-inline-end: 4px solid
+    var(--primary-foreground) !important;
+}
+
+.str-video__speech-indicator.str-video__speech-indicator--dominant
+  .str-video__speech-indicator__bar {
+  background-color: var(--primary-foreground) !important;
+}
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+  0% {
+    animation-timing-function: ease-in;
+    width: 0%;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    width: 100%;
+  }
+}

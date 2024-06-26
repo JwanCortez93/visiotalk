@@ -1,6 +1,15 @@
 import { ReactNode } from "react";
 import NavBar from "./_components/NavBar";
 import SideBar from "./_components/SideBar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "VisioTalk",
+  description: "Where Distance Disappears",
+  icons: {
+    icon: "/logo/png/visiotalk-favicon-color.png",
+  },
+};
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (

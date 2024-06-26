@@ -33,3 +33,5 @@ declare type MeetingModalProps = {
     Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
   >;
 };
+
+
