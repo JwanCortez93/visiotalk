@@ -132,6 +132,43 @@
   background-color: var(--primary-foreground) !important;
 }
 
+/* react datepicker override */
+
+.react-datepicker {
+  background-color: var(--background) !important;
+  color: var(--secondary-foreground) !important;
+  border: none !important;
+  border-radius: 1rem !important;
+}
+.react-datepicker__header {
+  background-color: transparent !important;
+
+  border-bottom: 1px solid var(--secondary-foreground) !important;
+}
+.react-datepicker__time-list {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.react-datepicker__time-list::-webkit-scrollbar {
+  display: none;
+}
+
+.react-datepicker__time-container,
+.react-datepicker__time {
+  background: transparent !important;
+  border-left: 1px solid var(--secondary-foreground) !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  color: var(--secondary-foreground) !important;
+}
+
 .show-block {
   width: 100%;
   max-width: 350px;

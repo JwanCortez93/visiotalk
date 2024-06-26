@@ -16,7 +16,7 @@ const MeetingModal = ({
 }: MeetingModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="flex flex-col w-full max-w-[520px] gap-6 border-none bg-secondary px-6 py-9 text-black">
+      <DialogContent className="flex flex-col w-full max-w-[520px] gap-6 border-none bg-foreground px-6 py-9 text-secondary-foreground">
         {icon && (
           <div className="flex flex-col gap-6">
             <div className="flex justify-center">{icon}</div>
