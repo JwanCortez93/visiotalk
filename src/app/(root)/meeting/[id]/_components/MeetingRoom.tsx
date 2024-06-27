@@ -3,7 +3,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -34,6 +33,21 @@ const MeetingRoom = () => {
   const callingState = useCallCallingState();
   const router = useRouter();
 
+  console.log(callingState);
+
+  if (callingState == CallingState.LEFT)
+    return (
+      <div className="h-screen w-full flex-center flex-col gap-6 font-bold text-5xl bg-foreground text-primary-foreground">
+        <h1>Meeting is over</h1>
+        <Button
+          onClick={() => router.push("/")}
+          size={"lg"}
+          className="text-secondary-foreground text-lg"
+        >
+          Return to home page
+        </Button>
+      </div>
+    );
   if (callingState !== CallingState.JOINED) return <Loader />;
 
   const CallLayout = () => {
