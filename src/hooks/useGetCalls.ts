@@ -10,8 +10,8 @@ export const useGetCalls = () => {
 
   useEffect(() => {
     const loadCalls = async () => {
-      if (!client || !user?.id) return;
       setIsLoading(true);
+      if (!client || !user?.id) return;
       try {
         const { calls } = await client.queryCalls({
           sort: [{ field: "starts_at", direction: -1 }],

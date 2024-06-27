@@ -58,7 +58,7 @@ const MeetingCard = ({
               onClick={handleClick}
               className="rounded bg-primary text-secondary-foreground px-6"
             >
-              {buttonIcon && <>buttonIcon &nbsp;</>}
+              {buttonIcon && <>{buttonIcon} &nbsp;</>}
               {buttonText}
             </Button>
             <Button
