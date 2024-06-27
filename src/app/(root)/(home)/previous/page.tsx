@@ -1,7 +1,12 @@
+import CallList from "../_components/CallList";
+
 const Previous = () => {
-  return  <section className="flex size-full flex-col gap-10 text-secondary-foreground">
-  <h1 className="text-3xl font-bold">Previous meetings</h1>
-</section>;
+  return (
+    <section className="flex size-full flex-col gap-10 text-secondary-foreground">
+      <h1 className="text-3xl font-bold">Previous meetings</h1>
+      <CallList type="ended" />
+    </section>
+  );
 };
 
 export default Previous;

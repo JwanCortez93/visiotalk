@@ -5,6 +5,7 @@ import {
   SquareUserRound,
   Videotape,
 } from "lucide-react";
+import { SidebarLink } from "../../types";
 
 export const sidebarLinks: SidebarLink[] = [
   {
@@ -32,4 +33,12 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/personal-room",
     icon: <SquareUserRound />,
   },
+];
+
+export const avatarImages = [
+  "https://robohash.org/voluptasvoluptateautem.png?size=50x50&set=set1",
+  "https://robohash.org/animidoloresdolores.png?size=50x50&set=set1",
+  "https://robohash.org/temporeaccusantiumquaerat.png?size=50x50&set=set1",
+  "https://robohash.org/afacereconsequatur.png?size=50x50&set=set1",
+  "https://robohash.org/magnievenietdolorem.png?size=50x50&set=set1",
 ];

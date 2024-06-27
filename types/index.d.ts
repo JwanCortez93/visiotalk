@@ -34,4 +34,17 @@ declare type MeetingModalProps = {
   >;
 };
 
-
+declare type MeetingCardProps = {
+  title: string;
+  date: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
+  isPreviousMeeting?: boolean;
+  buttonIcon?: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
+  buttonText?: string;
+  handleClick: () => void;
+  link: string;
+};
