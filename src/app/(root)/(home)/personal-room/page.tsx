@@ -10,20 +10,18 @@ import { useRouter } from "next/navigation";
 const PersonalRoom = () => {
   const { user } = useUser();
 
-  if (!user) return <h1>Please Log In</h1>;
-
   const client = useStreamVideoClient();
   const { toast } = useToast();
   const router = useRouter();
-  const meetingId = user.id;
+  const meetingId = user?.id;
   const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
 
-  const { call } = useGetCallById(meetingId);
+  const { call } = useGetCallById(meetingId!);
 
   const startRoom = async () => {
-    if (!client) return;
+    if (!client || !user) return;
 
-    const newCall = client.call("default", meetingId);
+    const newCall = client.call("default", meetingId!);
 
     if (!call) {
       await newCall.getOrCreate({
@@ -43,12 +41,12 @@ const PersonalRoom = () => {
         <Table
           title="Topic"
           description={`${
-            user.username!.charAt(0).toUpperCase() + user.username!.slice(1)
+            user!.username!.charAt(0).toUpperCase() + user!.username!.slice(1)
           }'s Meeting Room`}
         />
       </div>
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
-        <Table title="Meeting ID" description={meetingId} />
+        <Table title="Meeting ID" description={meetingId!} />
       </div>
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
         <Table title="Invite Link" description={meetingLink} />
