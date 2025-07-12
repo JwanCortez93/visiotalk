@@ -21,6 +21,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import EndCallButton from "./EndCallButton";
 import Loader from "@/components/Loader";
+import { useToast } from "@/components/ui/use-toast";
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
 
@@ -32,8 +33,7 @@ const MeetingRoom = () => {
   const { useCallCallingState } = useCallStateHooks();
   const callingState = useCallCallingState();
   const router = useRouter();
-
-  console.log(callingState);
+  const { toast } = useToast();
 
   if (callingState == CallingState.LEFT)
     return (
@@ -60,6 +60,15 @@ const MeetingRoom = () => {
         return <SpeakerLayout participantsBarPosition="left" />;
     }
   };
+
+  const handleLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      toast({ title: "Link copied to clipboard!" });
+    } catch (err) {
+      console.error("Failed to copy the link: ", err);
+    }
+  };
   return (
     <section className="relative h-screen w-full overflow-hidden pt-4 text-secondary-foreground bg-foreground">
       <div className="relative flex-center size-full ">
@@ -75,12 +84,14 @@ const MeetingRoom = () => {
         </div>
       </div>
       <div className="fixed bottom-0 flex-center gap-5 w-full flex-wrap">
-        <CallControls
-          onLeave={() => {
-            router.push("/");
-          }}
-        />
         <DropdownMenu>
+          <Button
+            variant="secondary"
+            className="bg-green-700"
+            onClick={handleLink}
+          >
+            Share link
+          </Button>
           <div className="flex items-center">
             <DropdownMenuTrigger className="cursor-pointer rounded-2xl bg-[#19232d] hover:bg-[#4c535b] px-4 py-2 ">
               <LayoutList size={20} className="text-secondary-foreground" />
@@ -113,6 +124,11 @@ const MeetingRoom = () => {
         >
           <Users size={20} className="text-secondary-foreground" />
         </Button>
+        <CallControls
+          onLeave={() => {
+            router.push("/");
+          }}
+        />
         {!isPersonalRoom && <EndCallButton />}
       </div>
     </section>

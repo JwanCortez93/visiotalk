@@ -64,6 +64,8 @@ const MeetingCard = ({
             <Button
               onClick={() => {
                 navigator.clipboard.writeText(link);
+                console.log("toast firing");
+
                 toast({ title: "Link Copied" });
               }}
               className="bg-background text-secondary-foreground px-6"
